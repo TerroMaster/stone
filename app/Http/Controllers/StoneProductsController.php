@@ -8,53 +8,83 @@ use Illuminate\Http\Request;
 class StoneProducts extends Controller
 {
 
+  /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $stoneproducts = StoneProductsResource::collection(Event::all());
-    
-        return $stoneproducts;
+        $stoneproducts = (stoneproducts::all());
+
+        return $stoneproducts; //ПОМЕНЯТЬ
     }
 
-
-    public function name()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-
-        $materialtype = MaterialtypeName::collection(MaterialType::all());
-
-        return $stoneproducts;
-            
+        //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
+        if($request->id ==null)
+        {
+            $stoneproducts = new StoneProducts;
 
-        
+            $stoneproducts->name = $request->name; //ПОМЕНЯТЬ
+            $stoneproducts->type_id = $request->type_id;
+            $stoneproducts->price = $request->price;
+         
 
-
-
+            $worker->save();
+            return $worker;
+        }
     }
 
-    public function show(kr $kr)
+    /**
+     * Display the specified resource.
+     */
+    public function show(StoneProducts $stoneproducts)
     {
-
+        //
     }
 
-    
-    public function edit(kr $kr)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(StoneProducts $stoneproducts)
     {
-
+        //
     }
 
-    
-    public function update(Request $request, kr $kr)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, StoneProducts $stoneproducts)
     {
+        if($request->id ==null)
+        {
+            $stoneproducts = new StoneProducts;
 
+            $stoneproducts->name = $request->name; //ПОМЕНЯТЬ
+            $stoneproducts->type_id = $request->type_id;
+            $stoneproducts->price = $request->price;
+
+            $stoneproducts->save();
+            
+            return true;
+        } 
     }
 
-
-    public function destroy(kr $kr)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(StoneProducts $stoneproducts)
     {
-
+        //
     }
 }

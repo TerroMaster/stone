@@ -40,3 +40,5 @@ Route::prefix ('sold_products')->group(function()  {
     Route::get('/stone_products_id', [SoldProductsController::class, 'stone_products_id']);
 }); 
 
+
+

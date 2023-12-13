@@ -9,8 +9,8 @@ class StoneProducts extends Model
 {
     use HasFactory;
     protected $fillabel = ['name','price','type_id',];
-
-    public function material_type(){
-        return $this->belongsTo(Status::class, 'type_id', 'id');
+    public function material_type()
+    {
+        return $this->belongsTo(Material_type::class,'type_id','id');
     }
 }

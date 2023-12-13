@@ -10,8 +10,10 @@ class MaterialType extends Model
     use HasFactory;
     protected $fillabel = ['name',];
 
-    public function material_type(){
-        return $this->belongsTo(Status::class, 'type_id','id');
+    public function material_type()
+    {
+        return $this->belongsTo(MaterialType::class, 'type_id','id');
     }
     
 }
+

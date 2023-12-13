@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class SoldProductsController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $soldproducts = (soldproducts::all());
+
+        return $soldproducts; //ПОМЕНЯТЬ
     }
 
     /**
@@ -28,13 +30,25 @@ class SoldProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->id ==null)
+        {
+            $soldproducts = new SoldProducts;
+
+            $soldproducts->name = $request->name; //ПОМЕНЯТЬ
+            $soldproducts->price = $request->price;
+            $soldproducts->sum = $request->sum;
+            $soldproducts->stone_products_id = $request->stone_products_id;
+        
+
+            $soldproducts->save();
+            return $soldproducts;
+        }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SoldProducts $soldProducts)
+    public function show(SoldProducts $soldproducts)
     {
         //
     }
@@ -42,7 +56,7 @@ class SoldProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SoldProducts $soldProducts)
+    public function edit(SoldProducts $soldproducts)
     {
         //
     }
@@ -50,15 +64,27 @@ class SoldProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SoldProducts $soldProducts)
+    public function update(Request $request, SoldProducts $soldproducts)
     {
-        //
+        if($request->id ==null)
+        {
+            $worker = new SoldProducts;
+
+            $soldproducts->name = $request->name; //ПОМЕНЯТЬ
+            $soldproducts->price = $request->price;
+            $soldproducts->sum = $request->sum;
+            $soldproducts->stone_products_id = $request->stone_products_id;
+
+            $worker->save();
+            
+            return true;
+        } 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SoldProducts $soldProducts)
+    public function destroy(SoldProducts $soldproducts)
     {
         //
     }
