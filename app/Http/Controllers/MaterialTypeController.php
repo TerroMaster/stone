@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kr;
+use App\Models\MaterialType;
 use Illuminate\Http\Request;
 
-class MaterialType extends Controller
+class MaterialTypeController extends Controller
 {
  /**
      * Display a listing of the resource.
