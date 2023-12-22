@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kr;
+use App\Models\StoneProducts;
 use Illuminate\Http\Request;
 
-class StoneProducts extends Controller
+class StoneProductsController extends Controller
 {
 
   /**
